@@ -7,7 +7,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 
 interface Transaction {
   _id?: string;
@@ -39,7 +39,7 @@ export default function Home() {
       const res = await fetch("/api/transactions");
       const data = await res.json();
       // Ensure all transactions have a category field
-      const normalizedData = data.map((t: any) => ({
+      const normalizedData = data.map((t: unknown) => ({
         ...t,
         category: t.category || CATEGORIES[0] // Default to first category if undefined
       }));
