@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Finance Visualizer
+
+A modern web application for tracking personal finances, built with Next.js, React, shadcn/ui, Recharts, and MongoDB.
+
+## Features
+
+- **Add, edit, and delete transactions** (amount, date, description, category)
+- **Predefined categories** with color-coded badges
+- **Monthly expenses bar chart**
+- **Category-wise pie chart** with legend
+- **Dashboard summary cards** (total expenses, top category, most recent transaction)
+- **Responsive, beautiful UI** with light/dark mode toggle
+- **Modern UX** using shadcn/ui components and dialogs
+- **MongoDB** for persistent storage
+
+## Screenshots
+
+![Dashboard Screenshot](public/image.png)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd yard-stick
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env.local` file in the root:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+- `app/page.tsx` — Main dashboard UI and logic
+- `pages/api/transactions.ts` — API routes for CRUD operations (Next.js API)
+- `models/Transaction.ts` — Mongoose schema for transactions
+- `components/ui/` — shadcn/ui components (Button, Input, Select, Dialog, Card, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js** (App Router, TypeScript)
+- **React 19**
+- **shadcn/ui** (Radix UI + Tailwind CSS)
+- **Recharts** (charts)
+- **MongoDB** (with Mongoose)
+- **Tailwind CSS** (utility-first styling)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run start` — Start production server
+- `npm run lint` — Lint code
+
+---
+
+## Customization
+
+- Edit categories in `app/page.tsx` (`CATEGORIES` array)
+- Change color palette in `CATEGORY_COLORS`
+- Add more dashboard cards or charts as needed
+
+---
+
+## Deployment
+
+Deploy easily on [Vercel](https://vercel.com/) or any platform that supports Next.js and environment variables.
+
+---
+
+## License
+
+MIT
