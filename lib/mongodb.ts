@@ -8,10 +8,9 @@ if (!MONGODB_URI) {
 
 type MongooseCache = { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 declare global {
-  // eslint-disable-next-line no-var
   var mongoose: MongooseCache | undefined;
 }
-let cached: MongooseCache = global.mongoose || { conn: null, promise: null };
+const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 if (!global.mongoose) {
   global.mongoose = cached;
 }

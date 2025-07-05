@@ -39,9 +39,9 @@ export default function Home() {
       const res = await fetch("/api/transactions");
       const data = await res.json();
       // Ensure all transactions have a category field
-      const normalizedData = data.map((t: unknown) => ({
+      const normalizedData = data.map((t: Transaction) => ({
         ...t,
-        category: t.category || CATEGORIES[0] // Default to first category if undefined
+        category: t.category || CATEGORIES[0], // Default to first category if undefined
       }));
       setTransactions(normalizedData);
     } catch (error) {
